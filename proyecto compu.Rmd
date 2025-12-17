@@ -10,11 +10,6 @@ date: "`r Sys.Date()`"
 output:
     github_document:
       htlm_preview: false
-    html_document:
-      theme: default
-      css: estilo.css
-      toc: true
-      number_sections: true
 link-citations: true
 urlcolor: "red"
 linkcolor: "red"
