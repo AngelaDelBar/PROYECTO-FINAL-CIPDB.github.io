@@ -7,13 +7,18 @@ author: "Beatriz Hidalgo,
          Pablo Jiménez y 
          Ángela Delgado"
 date: "`r Sys.Date()`"
-output:
-  github_document:
-  htlm_preview: false
+output: 
+    html_document:
+      theme: default
+      css: estilo.css
+      toc: true
+      number_sections: true
 link-citations: true
 urlcolor: "red"
 linkcolor: "red"
-bibliography: referencias.bib
+bibliography: 
+    - referencias.bib
+    - paquetes.bib
 editor_options: 
   chunk_output_type: console
 ---
@@ -81,7 +86,6 @@ library('knitr')
 library(readr)
 
 datos <- read.csv("/cloud/project/spider-lab-gifts.csv", sep = ",", dec = ".")
-colnames(datos)
 ```
 
 Estos datos fueron obtenidos en <https://www.kaggle.com/datasets/mexwell/spider-lab-gifts>
@@ -106,7 +110,6 @@ Cada columna corresponde con una variable. Aunque tenemos `r ncol(datos)` variab
 
 -   **MALE MASS AFTER TRIAL (mg):** masa del macho despues de hacer el regalo en miligramos. Esta variable nos permite ver si el macho se ha alimentado del regalo antes de envolverlo.
 
--   **MALE WEIGHT difference (bef-after):** diferencia de peso del macho antes y despues de hacer el regalo.
 
 ```{r datos procesados, echo=FALSE, warning=FALSE, results='hide'}
 #Calculamos el consumo previo
@@ -202,7 +205,7 @@ cor.test(datos$`MALE.MASS.BEFORE.TRIAL..mg.`,
 
 ```
 
-A su vez, el p-valor es \<0,05 por lo que tenemos que rechazar la hipotesis nula y aceptar la hipotesis alternativa, es decir, que exite una relación significativa entre el peso del macho y el peso del regalo. Ademas de esto, la correlación es positiva por lo que indica que a mayor peso corporal, mayor peso del regalo.
+A su vez, el p-valor es <0,05 por lo que tenemos que rechazar la hipotesis nula y aceptar la hipotesis alternativa, es decir, que exite una relación significativa entre el peso del macho y el peso del regalo. Ademas de esto, la correlación es positiva por lo que indica que a mayor peso corporal, mayor peso del regalo.
 
 ```{r Gafico puntos, echo=FALSE, warning=FALSE}
 ggplot(datos, aes(
@@ -232,7 +235,7 @@ modelo_TR <- lm(consumo_previo ~ N.TRIAL, data = datos)
 summary(modelo_TR)
 ```
 
-El **p-valor es \>0,05** por lo que aceptamos la hipótesis nula, es decir, si que no existe una relación significativa entre el tiempo invertido por el macho en conseguir el regalo y el consumo previo.
+El **p-valor es >0,05** por lo que aceptamos la hipótesis nula, es decir, si que no existe una relación significativa entre el tiempo invertido por el macho en conseguir el regalo y el consumo previo.
 
 ```{r grafico_WF, echo=FALSE, warning=FALSE}
 
