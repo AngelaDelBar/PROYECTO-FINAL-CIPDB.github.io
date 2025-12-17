@@ -8,8 +8,8 @@ author: "Beatriz Hidalgo,
          Ángela Delgado"
 date: "`r Sys.Date()`"
 output:
-    github_document:
-      htlm_preview: false
+  github_document:
+  htlm_preview: false
 link-citations: true
 urlcolor: "red"
 linkcolor: "red"
@@ -80,9 +80,8 @@ library('knitr')
 ```{r leer-archivo, echo=FALSE, warning=FALSE, results='hide'}
 library(readr)
 
-datos <- read.csv("C:/cloud/project/spider-lab-gifts.csv", sep = ",", dec = ".")
+datos <- read.csv("/cloud/project/spider-lab-gifts.csv", sep = ",", dec = ".")
 colnames(datos)
-View(datos)
 ```
 
 Estos datos fueron obtenidos en <https://www.kaggle.com/datasets/mexwell/spider-lab-gifts>
